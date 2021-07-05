@@ -1,0 +1,21 @@
+name: manHunt
+main: xyz.umeo.manHunt.Main
+api-version: '1.17'
+version: 1.0-17
+
+commands:
+  set:
+    description: Set the role of runner or hunter.
+    usage: /<command> <args> <args>
+
+  heal:
+    description: Runner gets heal change for once!
+    usage: /<command>
+
+  start:
+    description: Start Manhunt!
+    usage: /<command>
+
+  debug:
+    description: For debug only!
+    usage: /<command>
