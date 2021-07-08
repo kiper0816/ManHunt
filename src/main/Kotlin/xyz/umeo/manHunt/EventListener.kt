@@ -11,6 +11,7 @@ import org.bukkit.event.Listener
 import org.bukkit.event.entity.PlayerDeathEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.player.PlayerJoinEvent
+import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.event.player.PlayerRespawnEvent
 import org.bukkit.inventory.ItemStack
 import xyz.umeo.manHunt.util.Compass
@@ -50,7 +51,7 @@ class EventListener: Listener {
 
     @EventHandler
     fun onHunterRespawn(event: PlayerRespawnEvent) {
-        if (event.player.type == EntityType.PLAYER && event.player.name == xyz.umeo.manHunt.data.runner?.name) {
+        if (event.player.type == EntityType.PLAYER && event.player.name == xyz.umeo.manHunt.data.hunter?.name) {
             event.player.inventory.addItem(ItemStack(Material.COMPASS))
         }
     }
@@ -63,5 +64,15 @@ class EventListener: Listener {
             }
         }
         catch (e:Exception) { return }
+    }
+
+    @EventHandler
+    fun onDisconnect(event: PlayerQuitEvent) {
+        if (event.player.type == EntityType.PLAYER && event.player.name == xyz.umeo.manHunt.data.runner?.name) {
+            event.player.gameMode = GameMode.SPECTATOR
+            event.player.banPlayer("You are a Coward.")
+            Stopwatch().mcStopwatchStop()
+            StartEnd().hunterWin()
+        }
     }
 }

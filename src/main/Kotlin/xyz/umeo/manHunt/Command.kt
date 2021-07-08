@@ -38,6 +38,12 @@ class Command: CommandExecutor{
                     Stopwatch().mcStopwatchStart()
                     StartEnd().start()
                 }
+                "reset" -> {
+                    Stopwatch().mcStopwatchStop()
+                    StartEnd().hunterWin()
+                    xyz.umeo.manHunt.data.isRunnerGetHealed = false
+                    xyz.umeo.manHunt.data.checkDistance = 3600.0
+                }
             }
         }
         else {

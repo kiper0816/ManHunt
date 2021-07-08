@@ -19,3 +19,7 @@ commands:
   debug:
     description: For debug only!
     usage: /<command>
+
+  reset:
+    description: Reset every changes!
+    usage: /<command>

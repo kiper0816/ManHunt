@@ -15,6 +15,7 @@ open class Main: JavaPlugin(), Listener, CommandExecutor{
         getCommand("heal")!!.setExecutor(Command())
         getCommand("debug")!!.setExecutor(Command())
         getCommand("start")!!.setExecutor(Command())
+        getCommand("reset")!!.setExecutor(Command())
     }
     override fun onDisable() = logger.info("manHunt is now disabled.")
 
